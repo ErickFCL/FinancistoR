@@ -1,0 +1,38 @@
+﻿
+<h1>Cuentas</h1>
+<a href="/account/edit">Crear Cuenta</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Divisa</th>
+            <th>Saldo</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @{
+            //var accounts = ((List<Account>)ViewBag.Accounts);
+            var accounts = ((List<Account>)Model);
+        }
+        @for (int i = 0; i < accounts.Count; i++)
+        {
+            var item = accounts[i];
+        <tr>
+            <td></td>
+            <td>@item.Type</td>
+            <td>@item.Name</td>
+            <td>@item.Currency</td>
+            <td>@item.Amount S/.</td>
+            <td>
+                <a href="/Account/edit?id=@item.Id">Editar</a> |
+                <a href="/Account/delete?id=@item.Id">Eliminar</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+Program by Erick Llico

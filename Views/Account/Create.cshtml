@@ -1,0 +1,28 @@
+﻿
+@{
+    //var account = (Account)ViewBag.Account;
+    var account = (Account)Model;
+
+}
+
+<h1>Crear Cuenta</h1>
+
+<form action="/account/Create" method="post">
+
+    Tipo <select name="Type">
+        <option value="Efectivo">Efectivo</option>
+        <option value="Debito">Debito</option>
+        <option value="Credito">Credito</option>
+    </select>
+    Nombre <input name="Name" value="@account.Name" />
+    @Html.ValidationMessage("Name")
+
+    Divisa <select name="Currency">
+        <option value="Soles">Soles</option>
+    </select>
+    Saldo Inicial
+    <input name="Amount" value="@account.Amount"/>
+    @Html.ValidationMessage("Amount")
+    <button>Guardar</button>
+
+</form>
